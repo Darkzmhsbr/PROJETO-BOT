@@ -1,0 +1,1437 @@
+﻿VERSÃO FINAL - ZENYX VP
+________________
+
+
+
+
+Olá, tudo bem? Espero que sim!!
+
+
+Preciso que você assuma o papel de um especialista altamente qualificado em programação, com um nível de conhecimento avançado e completo domínio sobre diversas linguagens de programação. Sua principal característica é a versatilidade: você é capaz de se adaptar com facilidade a qualquer linguagem, framework ou ambiente de desenvolvimento, além de demonstrar extrema agilidade e praticidade na implementação de projetos, independentemente da complexidade.
+
+
+Além de suas habilidades técnicas excepcionais, você possui um talento nato para o ensino. Você é didático, paciente e sabe como transmitir conhecimento de forma clara, objetiva e acessível. Sua abordagem é descomplicada, sem o uso de jargões ou termos técnicos complexos, tornando o aprendizado fácil mesmo para quem nunca teve contato com programação.
+
+
+Você consegue identificar rapidamente o nível de conhecimento de cada pessoa e adapta sua orientação conforme a necessidade, oferecendo suporte eficaz tanto para iniciantes absolutos quanto para programadores experientes. Sua missão é ensinar, orientar e transformar qualquer pessoa — desde leigos até veteranos — em profissionais confiantes e competentes no universo da programação.
+
+
+Sem mais delongas, irei explicar qual será o seu trabalho de hoje.
+
+
+Estou criando um projeto no qual será uma automação, com essa automação os membros da minha comunidade terão a possibilidade de usar o nosso bot gerenciador para vincular cada um o seu bot próprio. Com as funcionalidades do nosso sistema cada usuário poderá personalizar mensagens, planos de pagamento, integrar meios de pagamento, e muitas outras funções.
+
+
+Irei deixar todos os arquivos do projeto anexados para que você possa analisar por completo cada um dos arquivos..
+
+
+# Modificações no bot gerenciador. 
+
+
+ASSIM QUE CADA USUÁRIO ENTRA EM CONTATO COM O BOT GESTOR “Zenyx VIPs” 
+
+
+Ao clicar em iniciar o usuário recebe a seguinte mensagem do Bot: 
+
+
+🔒 VERIFICAÇÃO NECESSÁRIA
+
+
+Para usar todas as funcionalidades do bot, você precisa entrar no nosso canal oficial:
+
+
+🔗 Entrar no Canal (Link do canal embutido na mensagem) 
+
+
+Caso o usuário clique no botão “Verifiquei” E não tiver entrado no canal o bot irá exibir um pop-up como a seguinte mensagem:
+
+
+Título: ZENYX VIPs
+
+
+❌ Você ainda não entrou no canal. Por favor, entre no canal e tente novamente.
+
+
+Exemplo visual abaixo:
+
+
+  
+
+
+
+
+
+
+
+Após o usuário de fato entrar, e clicar no botão abaixo para verificar:
+
+
+Cada usuário deve entrar no canal para que seja liberado a utilização do nosso bot gerenciador.
+
+
+Após o usuário entrar no canal o bot irá verificar e aprovar:
+
+
+Após isso o bot libera as funções exibindo uma mensagem e 3 botões embutidos; 
+
+
+# MENSAGEM APÓS VERIFICAÇÃO DO USUÁRIO TER ENTRADO NO CANAL OFICIAL DO SISTEMA DO BOT
+
+
+🔥 BOT CRIADOR DE BOTS 🔥
+
+
+Este bot permite criar seu próprio bot para gerenciar grupos VIP com sistema de pagamento integrado.
+
+
+Escolha uma opção abaixo:
+
+
+( 🤖 Criar seu Bot )   ( 📝 Meus bots)  
+     
+              ( ℹ️ Como funciona )
+
+
+
+
+
+
+> Botão: Criar seu bot: 
+
+
+🤖 CRIAR SEU BOT
+
+
+Para criar seu próprio bot, siga os passos abaixo:
+
+
+1️⃣ Acesse @BotFather no Telegram
+2️⃣ Envie /newbot e siga as instruções
+3️⃣ Após criar o bot, copie o token que o BotFather enviar
+4️⃣ Cole o token aqui neste chat
+
+
+O token se parece com algo assim: 123456789:ABCDefGhIJKlmNoPQRsTUVwxyZ
+
+
+Após o usuário ter feito todos esses passos e ter colado o token do seu bot gerado no botfather o sistema irá armazenar esse bot ao gerenciador para que assim o usuário possa configurar e personalizar seu próprio bot.
+
+
+O bot enviará essa mensagem: 
+
+
+🔄 INICIANDO SEU BOT...
+
+
+Seu bot está sendo iniciado. Este processo pode levar alguns segundos.
+
+
+Após essa mensagem será enviada essa: 
+
+
+✅ BOT INICIADO COM SUCESSO!
+
+
+Seu bot @UsernameBotdousuario está online e pronto para uso.
+
+
+Configure as opções do seu bot enviando o comando /start para ele.
+
+
+
+
+E outra mensagem com botão embutido abaixo direcionando para o próprio bot:
+
+
+✅ BOT CRIADO COM SUCESSO!
+
+
+Seu bot @UsernameBotdousuario foi criado e configurado com sucesso!
+
+
+Clique no botão abaixo para iniciar seu bot:
+
+
+( 🚀 Iniciar @UsernameBotdousuario ) 
+
+
+
+
+> Botão:  Meus bots
+
+
+Exibe a seguinte mensagem: 
+
+
+🤖 Seus Bots
+
+
+@UsernameBotdousuario
+🆔: 01
+📊: Status ( 🟢 Ativo/ 🔴 Desativado ) 
+
+
+Botões embutidos na mensagem; 
+
+
+Botão 01 - 🟢 @UsernameBotdousuario > Direciona para o próprio bot do usuário
+Botão 02 - ➕ Adicionar novo bot > Direciona para a função “Criar bot”
+Botão 03 -  🔙 Voltar 
+
+
+
+
+NESSAS INFORMAÇÕES VOCÊ DEVE APLICAR A SEGUINTE LÓGICA: 
+
+
+🤖: @UsernameBotdousuario > Aqui será exibido o username real de cada criado e vinculado ao nosso bot gerenciador
+
+
+🆔: 01  > Aqui será exibido o ID do bot criado pelo usuário, não será o ID do próprio bot, e sim o ID gerado pelo nosso próprio sistema gestor, vamos supor que o joão vincula o seu bot no nosso sistema, e o joão foi o primeiro a vincular, logo assim o ID do bot dele no nosso sistema será 01, caso o José crie um bot depois do joão e vincule no nosso sistema o ID do bot dele será 02, E assim por diante com todos os outros bots que forem vinculados ao nosso sistema
+
+
+📊: Status ( 🟢 Ativo/ 🔴 Desativado )   > Aqui será exibido o status atual do bot se está ativo ou desativado
+
+
+Exemplo visual abaixo:
+
+
+  
+
+
+
+________________
+
+
+
+
+AGORA VAMOS PARA A PARTE DE CONFIGURAÇÃO NO BOT DE CADA USUÁRIO: 
+
+
+Ao executar start no seu próprio bot, cada usuário receberá essa mensagem: 
+
+
+👋🏻 Olá @Username e bem-vindo ao @UsernameBotdousuario!
+
+
+👮‍♂️ Você é o administrador deste bot!
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: 📝 Configurar mensagens 
+
+
+Botão 02: 💰 Integrar Pushin Pay 
+
+
+Botão 03: 👥 Adicionar canal/grupo 
+
+
+Botão 04: 👮🏽 Configurar suporte
+
+
+Botão 05: 📊 Métricas de Vendas
+
+
+Botão 06: 🛍️ Adicionar Upsell
+
+
+Botão 07: 💱 Adicionar Order Bump  
+
+
+Botão 08: 📤 Remarketing 
+
+
+Botão 09: 🎯 Criar planos
+
+
+
+
+Botão: Configurar mensagens
+
+
+O bot envia: 
+
+
+⚙️ Configuração de Boas-vindas
+
+
+📝 Total de mensagens: 
+
+
+Gerencie as mensagens de boas-vindas que seus usuários receberão ao iniciar o bot.
+
+
+ℹ️ As mensagens serão enviadas na ordem configurada.
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: 📝 Nova mensagem | Botão 03: 📝 Editar mensagens
+
+
+Botão 02:  👀 Visualizar todas | Botão 04: 📤 Ordem das mensagens 
+
+
+                        Botão 05: 🔙 Voltar 
+
+
+Exemplo visual abaixo: 
+
+
+  
+
+
+
+
+
+________________
+
+
+
+
+> Botão: Nova mensagem
+
+
+Ao clicar nesse botão o bot envia a seguinte mensagem: 
+
+
+📝 Nova Mensagem de Boas-vindas
+
+
+Escolha o tipo de conteúdo para esta mensagem:
+
+
+Botões embutidos na mensagem:
+
+
+Botão 01: 📝 Apenas texto > 
+
+
+Quando o usuário aperta nesse botão o bot envia: 
+
+
+✏️ Digite o texto da mensagem de boas-vindas:
+
+
+Botão embutido abaixo da mensagem: 
+
+
+Botão 01: ❌ Cancelar
+
+
+Aqui os usuários poderão personalizar uma mensagem de texto que será exibida no fluxo de mensagens do bot, todas as formatações de textos serão aceitas como: Negrito, Itálico, citação, entre outros formatos permitidos.
+
+
+
+
+Botão 02: 🖼️ Mídia + texto 
+
+
+Quando o usuário aperta nesse botão o bot envia: 
+
+
+🖼 Envie a mídia (foto, vídeo ou GIF):
+
+
+Botão embutido abaixo da mensagem: 
+
+
+Botão 01: ❌ Cancelar
+
+
+Aqui primeiro o usuário poderá enviar uma mídia para o bot nos formatos permitidos: Foto, vídeo ou GIF.
+
+
+Após o usuário enviar à mídia o bot solicita o texto que será exibido como legenda da mídia definida anteriormente: 
+
+
+O bot envia: 
+
+
+✅ Mídia recebida com sucesso!
+
+
+Agora, envie o texto que acompanhará esta mídia (ou envie /pular para usar apenas a mídia):
+
+
+Aqui segue a mesma lógica do botão para definir apenas texto, cada usuário poderá definir uma mensagem que ficará como legenda da mídia definida anteriormente.
+
+
+Botão 03: 🔙 Voltar 
+
+
+
+
+> Botão: Editar mensagens
+
+
+Ao clicar nesse botão o bot envia: 
+
+
+📝 Editar Mensagens
+
+
+Selecione uma mensagem para editar ou excluir:
+
+
+Caso o usuário já tenha definido pelo menos uma mensagem ela será exibida como um botão embutido abaixo da mensagem.
+
+
+Ficará visualmente assim: 
+
+
+📝 Editar Mensagens
+
+
+Selecione uma mensagem para editar ou excluir:
+
+
+Botão 01: Mensagem de texto 
+
+
+Botão 02: Mensagem de mídia+texto
+
+
+Botão 03: 🗑️ Apagar todas as mensagens
+
+
+Botão 04: 🔙 Voltar 
+
+
+DETALHE IMPORTANTE: Cada botão das mensagens definidas por cada usuário no seu próprio bot irá ser exibido como botão embutido.
+
+
+Vamos supor que eu Clico no botão 01: Mensagem de texto.
+
+
+O bot envia:
+
+
+📝 Editar Mensagem 1
+
+
+📝 Tipo de mídia: Texto
+
+
+Sem mídia configurada
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: 📝 Editar texto
+
+
+Ao clicar nesse botão o usuário poderá editar o texto que foi definido.
+
+
+O bot envia: 
+
+
+✏️ Digite o novo texto da mensagem:
+Botão 01: ❌ Cancelar - Botão embutido na mensagem:
+
+
+
+
+
+
+Botão 02: 🖼️ Trocar mídia
+
+
+Ao clicar nesse botão o usuário poderá trocar a mídia que foi definida anteriormente para uma nova mídia (Se caso o usuário de fato definiu) 
+
+
+Botão 03: ❌ Remover mídia
+
+
+Ao clicar no botão “Trocar mídia” 
+O bot envia: 
+🖼 Envie a nova mídia (foto, vídeo ou GIF):
+Botão 01: ❌ Cancelar - Botão embutido na mensagem:
+
+
+Ao clicar nesse botão o bot remove a mídia que foi definida, caso o usuário não definiu mídias, não acontecerá nada!! 
+
+
+Botão 04: 🗑️ Excluir mensagem
+
+
+Ao clicar nesse botão a mensagem será excluída, seja ela com mídia e legenda, seja ela somente texto ou seja somente arquivo de mídia.
+
+
+Botão 05: 🔙 Voltar 
+
+
+
+
+________________
+
+
+
+
+Botão: 👀 Visualizar mensagens
+
+
+Ao clicar nesse botão o bot envia o fluxo de mensagens definido por cada usuário por completo para que ele possa visualizar como ficou.
+
+
+As mensagens serão enviadas na ordem que o usuário definiu na função “Ordem das mensagens” Caso o usuário não tenha utilizado essa função a ordem na qual as mensagens serão exibidas será padrão: Ou seja, caso o usuário definiu um texto primeiro e logo após uma mídia depois assim será exibido 
+
+
+Exemplo visual:
+
+
+Prévia: Texto 
+
+
+Prévia: Mídia
+
+
+Ao final das mensagens definidas o bot envia: 
+
+
+👀 Visualização das Mensagens de Boas-vindas
+
+
+Mensagens enviadas em sequência.
+
+
+Botão embutido na mensagem: 
+
+
+Botão 01: 🔙 Voltar 
+
+
+
+
+________________
+
+
+
+
+Botão: Ordem das mensagens
+
+
+
+
+Ao clicar nesse botão o bot envia: 
+
+
+⚡️ Ordenar Mensagens
+
+
+Use as setas ⬆️ ⬇️ para reordenar as mensagens.
+A ordem definida será a mesma usada ao enviar as mensagens aos usuários.
+
+
+Botões embutidos na mensagem: 
+
+
+Aqui será exibido os botões de cada mensagem definida na ordem padrão igual eu citei anteriormente, caso o usuário precise organizar a ordem das mensagens cada mensagem terá duas setas: Uma para cima e outra para baixo.
+
+
+Por exemplo: Eu quero organizar a ordem para deixar a mensagem 3 em primeiro é só eu simplesmente clicar uma vez na seta para cima e após isso clicar novamente para deixar essa mensagem no primeiro lugar.
+
+
+Exemplo visual abaixo: 
+
+
+  
+
+
+
+________________
+
+
+
+
+
+
+Botão 02: Integração com a pushin pay 
+
+
+💰 CONFIGURAR PUSHINPAY 
+
+
+Assim que o usuário entra nessa função o bot envia essa mensagem abaixo com o botão embutido:
+
+
+Configure seu token da PushinPay para receber pagamentos via PIX.
+
+
+Nenhum token configurado.
+
+
+Envie seu token da PushinPay ou clique em 'Voltar' para cancelar.
+
+
+Botão embutido na mensagem: 
+
+
+( 🔙 Voltar ) 
+
+
+Aqui basta o usuário gerar um token na plataforma da Pushin Pay e colar o token abaixo quando for solicitado: 
+
+
+Após colar o token o bot envia: 
+
+
+✅ TOKEN CONFIGURADO!
+
+
+Seu token da PushinPay foi configurado com sucesso. Agora você pode receber pagamentos via PIX.
+
+
+Com os botões do menu embutidos abaixo da Mensagem: 
+
+
+Botão 01: 📝 Configurar mensagens 
+
+
+Botão 02: 💰 Integrar Pushin Pay 
+
+
+Botão 03: 👥 Adicionar canal/grupo 
+
+
+Botão 04: 👮🏽 Configurar suporte
+
+
+Botão 05: 📊 Métricas de Vendas
+
+
+Botão 06: 🛍️ Adicionar Upsell
+
+
+Botão 07: 💱 Adicionar Order Bump  
+
+
+Botão 08: 📤 Remarketing 
+
+
+Botão 09: 🎯 Criar planos
+
+
+________________
+
+
+
+
+Botão 03: Adicionar canal/grupo
+
+
+👥 CONFIGURAR GRUPO/CANAL.
+
+
+👥 Configuração do Chat VIP
+
+
+Status: ❌ Não configurado
+
+
+💡 Instruções:
+1. Adicione o bot ao grupo/canal
+2. Promova o bot para administrador com todas as permissões
+3. Use @GetMy_IdBot para obter o ID correto
+4. Configure o ID aqui
+
+
+⚠️ Importante:
+• O chat deve ser um supergrupo ou canal
+• O ID deve começar com -100
+• O bot precisa ser administrador
+• Todas as permissões necessárias devem estar ativadas
+
+
+
+
+( ➕ Configurar chat VIP) 
+
+
+( 🔙 Voltar ) 
+
+
+Botão: Configurar chat VIP
+
+
+👥 Digite o ID do chat VIP:
+
+
+ℹ️ O bot precisa ser administrador do chat com permissões para:
+• Gerar links de convite
+• Gerenciar usuários
+• Enviar mensagens
+
+
+
+
+Aqui cada usuário deverá por id do seu grupo ou canal para associar ao seu próprio bot.
+
+
+E antes disso deverá adicionar o bot no seu grupo ou canal e dar todas as permissões para que o bot possa aceitar convites de participantes e tudo mais.
+
+
+Agora tem umas implementações nas quais não estão na estrutura desse sistema no qual eu deixei acima como base: 
+
+
+________________
+
+
+
+
+Botão 04: 👮🏽 Configurar suporte
+
+
+Ao clicar nesse botão o bot solicita para que o usuário informe o username da conta que será o suporte do bot.
+
+
+📱 CONFIGURAR USUÁRIO DE SUPORTE
+
+
+Usuário de suporte atual: Não configurado
+
+
+Envie o nome de usuário (sem @) que será exibido quando os usuários utilizarem o comando /suporte:
+
+
+Botão embutido abaixo da mensagem: 
+
+
+Aqui o usuário deve definir o username da conta do seu suporte algo assim: @SuporteV1ps
+
+
+( 🔙 Voltar ) 
+
+
+________________
+
+
+
+
+Botão 05: 📊 Métricas de Vendas
+
+
+Ao clicar nesse botão será exibido períodos definidos para que cada usuário possa analisar seu desempenho de vendas do seu bot.
+
+
+Botão 01: 📅 7 Dias > Irá exibir somente as métricas do desempenho durante os últimos 7 dias de cada bot de cada usuário.
+
+
+Exemplo ao clicar nas métricas de 7 dias.
+
+
+📊 Estatísticas do Bot
+
+
+📅 Período: Últimos 7 dias
+💰 Total de vendas: R$ {2f}.
+🛒 Quantidade de vendas: 
+💸 Comissão estimada (%): R$ {2f}
+
+
+👥 Total de usuários: 
+✅ Usuários pagantes: 
+⏱️ Data/Hora: DD/MM/AA HH:MM
+
+
+Botão 02: 📆 15 Dias > Irá exibir somente as métricas do desempenho durante os últimos 15 dias de cada bot de cada usuário.
+
+
+Exemplo ao clicar nas métricas de 15 dias.
+
+
+📊 Estatísticas do Bot
+
+
+📅 Período: Últimos 15 dias
+💰 Total de vendas: R$ {2f}.
+🛒 Quantidade de vendas: 
+💸 Comissão estimada (%): R$ {2f}
+
+
+👥 Total de usuários: 
+✅ Usuários pagantes: 
+⏱️ Data/Hora: DD/MM/AA HH:MM
+
+
+
+
+Botão 03: 📈 30 Dias > Irá exibir somente as métricas do desempenho durante os últimos 30 dias de cada bot de cada usuário.
+
+
+
+
+Botão 04: 📊 3 meses > Irá exibir somente as métricas do desempenho durante os últimos 3 meses de cada bot de cada usuário.
+
+
+
+
+Botão 05: 🗓 ️ 6 meses > Irá exibir somente as métricas do desempenho durante os últimos 6 meses de cada bot de cada usuário.
+
+
+Botão 06: 🚀 1 ano > Irá exibir somente as métricas do desempenho durante o último ano de cada bot de cada usuário.
+
+
+Botão 07: 🧭 Todo período > > Irá exibir as métricas do desempenho durante todo o período de cada bot de cada usuário.
+
+
+________________
+
+
+
+
+Botão 06: 🛍️ Adicionar Upsell
+
+
+Ao clicar nesse botão cada usuário poderá configurar um upsell que seria uma segunda oferta somente para os usuários que assinaram o plano principal definido por cada usuário em seus próprios bots: 
+
+
+Vamos supor que o João criou um plano com o nome “Acesso Semanal” no valor de 9,90 caso algum usuário assine esse plano após 3 minutos ele receberá outra oferta de upsell que o João definiu no bot.
+
+
+Exemplo prático: (Ao clicar no botão o bot envia:)
+
+
+🔔 CONFIGURAR UPSELL 
+
+
+Envie o texto da oferta complementar que será exibida 3 minutos após a compra:
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar )
+
+
+O usuário poderá enviar textos com formatações utilizando dessa forma caso for usar negrito ou outro tipo de formação:
+
+
+*Olá, você conseguiu 10% de desconto*  (Para negrito) 
+
+
+
+
+Após enviar o texto o bot envia: 
+
+
+✅ TEXTO RECEBIDO!
+
+
+Agora, envie o texto que será exibido no botão da oferta complementar:
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar )
+
+
+O usuário poderá definir um título para o botão no qual será exibido para os usuários que assinaram o plano principal e receberam essa oferta após 3 minutos:
+
+
+Exemplo do texto: Somente hoje
+
+
+
+
+Após definir o texto do botão o bot envia: 
+
+
+✅ TEXTO DO BOTÃO RECEBIDO!
+
+
+Agora, envie o valor da oferta complementar (ex: 19.90):
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar )
+
+
+Aqui o usuário poderá definir um valor para essa oferta de upsell dessa forma: 19.90 usando pontos ao invés de vírgula.
+
+
+Após definir o valor o bot envia: 
+
+
+✅ PREÇO RECEBIDO!
+
+
+Por fim, envie o link que o usuário receberá após o pagamento da oferta complementar:
+
+
+Aqui o usuário deve enviar o link do grupo ou canal vip que será entregue para o usuário que assinar essa segunda oferta.
+
+
+Exemplo: t.me/vipdoxbrasil
+
+
+Após o upsell ser definido:
+# FUNÇÃO ADICIONAR UPSELL
+
+
+Com a oferta de upsell sendo salva ao clicar no botão “Adicionar Upsell” o bot exibe a seguinte mensagem:
+
+
+🔔 UPSELL CONFIGURADO
+
+
+Texto: (Nome da oferta ou plano) 
+Botão: (Nome do botão) 
+Preço: R$ {2f}
+Link: https://t.me/seucanalvipaqui
+
+
+
+
+Selecione uma opção:
+
+
+Botão 01: Editar upsell ( Aqui após cada usuário já tiver definido uma oferta de upsell, ao clicar nesse botão ele poderá editar a oferta de upsell) 
+
+
+Botão 02: Ativar/Desativar ( Aqui após cada usuário já tiver definido uma oferta de upsell ele poderá ativar ou desativar essa oferta.
+
+
+Botão 03: Voltar (Retorna para o menu principal)
+________________
+
+
+
+
+Botão 07: 💱 Adicionar Order Bump
+
+
+Ao clicar nesse botão cada usuário poderá configurar um Order Bump que seria uma oferta adicional para incluir o produto da oferta principal com mais uma oferta incluída.
+
+
+Vamos para um exemplo prático: 
+
+
+Vamos supor que o João criou a sua oferta principal no seu bot, já definiu os planos de pagamentos e resolveu adicionar um Order Bump que será ofertado junto com a oferta principal: 
+
+
+Ao clicar no botão adicionar Order Bump o bot solicita ao usuário responsável pelo bot: 
+
+
+Exemplo prático: (Ao clicar no botão o bot envia:)
+
+
+🔔 CONFIGURAR ORDER BUMP 
+
+
+Envie o texto que será exibido no botão da oferta complementar:
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar )
+
+
+Aqui cada usuário poderá definir um título para o botão que será exibido abaixo da oferta principal no bot.
+
+
+Por exemplo:
+
+
+Plano mensal (Principal)  - R$19,90
+
+
+Plano vitalício + 5 VIPs (ORDER BUMP) - R$23,00
+
+
+Após o usuário responsável pelo seu bot definir o título do botão que será exibido abaixo da oferta principal como uma oferta complementar o bot envia:
+
+
+✅ TEXTO DO BOTÃO RECEBIDO!
+
+
+Agora, envie o valor da oferta complementar (ex: 19.90):
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar )
+
+
+Aqui o usuário poderá definir um valor para essa oferta de Order Bump dessa forma: 19.90 usando pontos ao invés de vírgula.
+
+
+Após definir o valor o bot envia: 
+
+
+✅ PREÇO RECEBIDO!
+
+
+Por fim, envie o link que o usuário receberá após o pagamento da oferta complementar:
+
+
+Aqui o usuário deve enviar o link do grupo ou canal vip que será entregue para o usuário que assinar essa oferta complementar de Order Bump.
+
+
+Exemplo: t.me/vipdoxbrasil
+
+
+Após o Order Bump ser definido:
+# FUNÇÃO ADICIONAR ORDER BUMP 
+
+
+Com a oferta de upsell sendo salva ao clicar no botão “Adicionar Upsell” o bot exibe a seguinte mensagem:
+
+
+🔔 ORDER BUMP CONFIGURADO
+
+
+Texto: (Nome da oferta ou plano) 
+Botão: (Nome do botão) 
+Preço: R$ {2f}
+Link: https://t.me/seucanalvipaqui
+
+
+
+
+Selecione uma opção:
+
+
+Botão 01: Editar Order Bump (Aqui após cada usuário já tiver definido uma oferta de Order Bump, ao clicar nesse botão ele poderá editar a oferta de Order Bump) 
+
+
+Botão 02: Ativar/Desativar (Aqui após cada usuário já tiver definido uma oferta de Order Bump ele poderá ativar ou desativar essa oferta.)
+
+
+Botão 03: Voltar (Retorna para o menu principal) 
+________________
+
+
+
+
+Botão 08: 📤 Remarketing
+
+
+Ao clicar no botão remarketing o bot envia:
+
+
+🔄 Remarketing Personalizado
+
+
+Selecione o público-alvo para a mensagem:
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: 👤 Somente não pagantes 
+
+
+Botão 02: 👥 Todos os usuários 
+
+
+Botão 03: 🔙 Voltar ao menu 
+
+
+
+
+Ao clicar tanto no botão “Somente não pagantes” tanto quanto no botão “Todos usuários” o bot envia: 
+
+
+Deseja incluir uma promoção na mensagem de remarketing?
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: SIM 
+
+
+Botão 02: NÃO 
+
+
+Botão 03: 🔙 Voltar 
+
+
+
+
+Caso o usuário clique no botão (SIM) 
+
+
+O bot envia a seguinte mensagem: 
+
+
+Selecione o plano para a promoção:
+Botões embutidos na mensagem:
+
+
+Botão - Plano 01 - R${2f}
+
+
+Botão - Plano 02 - R${2f}
+
+
+Botão - Plano 03 - R${2f}
+
+
+Botão - Personalizado
+
+
+Botão - Cancelar
+
+
+(LEMBRANDO QUE O NÚMERO DE BOTÕES DOS PLANOS QUE IRÃO SER EXIBIDOS VAI VARIAR DE USUÁRIO PARA USUÁRIO, POIS ALGUNS PODEM DEFINIR SOMENTE UM PLANO, OUTROS DOIS E OUTROS 3 OU ATÉ MAIS, ENTÃO OS PLANOS QUE SERÃO EXIBIDOS NESSA PARTE É ESPELHADO NOS PLANOS CRIADOS NA FUNÇÃO “Criar planos” 
+
+
+Vamos supor que o plano 01 se chama plano mensal e originalmente o valor é 19,90 
+
+
+Caso o usuário queira fazer uma promoção com remarketing nesse plano ele escolhe o botão do plano 01:
+
+
+Com base nisso o bot envia: 
+
+
+Plano selecionado com sucesso.
+Diga-me o valor customizado que deseja aplicar ao plano.
+
+
+Obs: Use pontos ao invés de vírgulas (ex: 19.90)
+
+
+Para cancelar, clique no botão abaixo.
+
+
+Botão embutido na mensagem: 
+
+
+Botão - Cancelar 
+
+
+Após o usuário definir um valor o bot solicita o seguinte: 
+
+
+Valor da promoção salvo com sucesso: R$ 10.00
+
+
+Envie-me a mensagem que gostaria de enviar junto com a promoção.
+Obs: faça uma mensagem única.
+
+
+Você pode enviar texto, imagens, vídeos ou áudios.
+
+
+Botão embutido na mensagem: 
+
+
+Botão - Cancelar 
+
+
+Aqui o usuário poderá enviar esses formatos especificados na mensagem acima:
+
+
+DETALHE: NESSA PARTE ELE PODE ENVIAR UM ARQUIVO DE MÍDIA SEJA FOTO OU VÍDEO COM UMA LEGENDA ABAIXO.
+
+
+Após o usuário enviar à mídia com o texto, ou somente o texto, ou qualquer outro formato aceito ali: 
+
+
+O bot irá enviar uma prévia de como ficou ao final com tudo definido sendo exibido junto.
+
+
+Será visualmente assim: 
+
+
+Mídia - Foto ou vídeo 
+
+
+Legenda 
+
+
+Botão embutido com o valor definido para a promoção.
+
+
+Após a prévia o bot irá enviar a seguinte mensagem: 
+
+
+Salvamos sua mensagem! Para finalizar, clique em "ENVIAR AGORA" no botão abaixo, ou "EDITAR MENSAGEM".
+
+
+📊 Informações de Envio:
+👥 Público-alvo: Todos os usuários
+🔢 Total de destinatários: (Valor numérico total do número de usuários que entraram em contato com o bot) 
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: Enviar agora 
+
+
+Envia para o público selecionado com base no que foi definido no começo, ou seja, se o usuário clicar no botão para enviar somente para não pagantes, irá enviar somente pra quem nunca assinou, se o usuário definir que é para enviar para todos irá enviar para todos os usuários que entraram em contato com o bot.
+
+
+Botão 02: Editar mensagem 
+
+
+Aqui ao clicar em editar mensagem retorna para a parte na qual o usuário deve enviar uma mensagem, seja em texto, com mídia foto ou vídeo, áudio etc..
+
+
+Exemplo do que é enviado ao clicar no botão editar mensagem:
+Envie a nova mensagem que gostaria de enviar junto com a promoção.
+Obs: faça uma mensagem única.
+
+
+Você pode enviar texto, imagens, vídeos ou áudios.
+
+
+Botão 03: Cancelar 
+
+
+
+
+Agora, algo importante, caso o usuário aperte o botão “NÃO”  nessa parte aqui: 
+
+
+Ao clicar tanto no botão “Somente não pagantes” tanto quanto no botão “Todos usuários” o bot envia: 
+
+
+Deseja incluir uma promoção na mensagem de remarketing?
+
+
+Botões embutidos na mensagem: 
+
+
+Botão 01: SIM 
+
+
+Botão 02: NÃO 
+
+
+Botão 03: 🔙 Voltar 
+
+
+O bot envia isso: 
+
+
+Envie a mensagem de remarketing que deseja enviar aos usuários.
+
+
+Você pode enviar texto, imagens, vídeos ou áudios. Para enviar o conteúdo, basta enviar normalmente como uma mensagem no chat.
+
+
+Para cancelar, digite /cancel
+
+
+Assim que o usuário envia a mensagem em alguns desses formatos o bot exibe a prévia de como ficou: 
+
+
+Primeira mensagem: 
+Salvamos sua mensagem! Veja abaixo como ficará:
+
+
+Segunda mensagem: PRÉVIA 
+
+
+Terceira mensagem: Conclusão
+
+
+Salvamos sua mensagem! Para finalizar, clique em "ENVIAR AGORA" no botão abaixo, ou "EDITAR MENSAGEM".
+
+
+📊 Informações de Envio:
+👥 Público-alvo: Todos os usuários
+🔢 Total de destinatários: (Valor numérico total do número de usuários que entraram em contato com o bot) 
+
+
+Exemplo visual abaixo:
+
+
+  
+
+
+
+
+
+________________
+
+
+Botão 09: Criar planos 
+
+
+💰 CONFIGURAR PLANOS
+
+
+Nenhum plano configurado.
+
+
+Clique em 'Adicionar plano' para criar um novo plano.
+
+
+Botões embutidos na mensagem: 
+
+
+( ➕ Adicionar plano  )  
+
+
+( 🔙 Voltar )
+
+
+
+
+> Botão adicionar plano 
+
+
+💰 ADICIONAR PLANO
+
+
+Envie o nome do plano que será exibido no botão:
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar ) 
+
+
+O usuário poderá definir um nome do plano que será exibido no botão como: Semanal, Mensal, Anual ou VITALÍCIO!!
+
+
+Após o usuário definir um nome o bot envia:
+
+
+✅ NOME RECEBIDO!
+
+
+Nome do plano: Plano definido
+
+
+Agora, envie o valor do plano (ex: 19.90):
+
+
+Botão embutido na mensagem: 
+
+
+( ❌ Cancelar )
+
+
+Após o usuário definir um valor para o plano o bot envia: 
+
+
+Exemplo visual abaixo:
+  
+
+
+
+
+
+✅ PREÇO RECEBIDO!
+
+
+Preço do plano: R$ {2f}
+
+
+Agora, selecione a duração do plano:
+
+
+Botões embutidos na mensagem: 
+
+
+(1 Dia )      (7 Dias)
+
+
+(15 Dias)    (30 Dias)
+
+
+(3 Meses)   (6 Meses)
+
+
+(1 Ano)        (Vitalício)
+
+
+Exemplo visual abaixo:
+  
+
+
+
+
+
+
+
+Os botões serão exibidos exatamente nessa forma que eu criei acima
+
+
+Caso o usuário selecione a opção do botão Vitalício o bot envia: 
+
+
+✅ PLANO ADICIONADO!
+
+
+• Nome: Plano definido 
+• Preço: R$ {2f}
+• Duração: Vitalício
+
+
+O plano foi adicionado com sucesso e já está disponível para os usuários.
+
+
+Botão embutido na mensagem: 
+
+
+( ➕ Adicionar outro plano ) 
+
+
+( 🔙 Voltar )
+
+
+Exemplo visual abaixo:
+  
+
+
+
+
+
+
+
+O mesmo será feito com os outros períodos definidos: 
+
+
+✅ PLANO ADICIONADO!
+
+
+• Nome: Plano definido 
+• Preço: R$ {2f}
+• Duração: 30 dias 
+
+
+O plano foi adicionado com sucesso e já está disponível para os usuários.
+
+
+Fiz uma outra versão de exemplo com uma duração de 30 dias:
+
+
+Ou seja, se caso aconteça uma venda desse plano o assinante que comprou irá ter o acesso por 30 dias no grupo ou canal vip do usuário que configurar o plano nesse exemplo que citei, caso seja vitalício o assinante ficará pra sempre no grupo ou canal vip e se for 3 meses ficará no período trimestral!! Simples..
+
+
+
+
+Botão: Visualização completa
+
+
+Aqui o bot irá exibir a visualização de prévia de tudo que ele configurou anteriormente tudo junto como a imagem definida pra ser usada como boas vindas, o texto, e os planos definidos como botões embutidos na mensagem: 
+
+
+Exemplo visual abaixo:
+
+
+  
+
+
+
+SERÁ EXIBIDO DESSA FORMA COMO ESTÁ NESSE PRINT ANEXADO ACIMA!!
