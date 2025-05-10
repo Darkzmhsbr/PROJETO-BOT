@@ -1,0 +1,192 @@
+﻿TRANSAÇÕES PIX PUSHIN PAY
+
+
+
+
+Criar QrCode PIX
+Request
+
+
+curl -X POST "/api/pix/cashIn" \
+  -H "Authorization: YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "value": 35,
+    "webhook_url": "http://teste.com"
+}'
+Esse endpoint cria um código PIX para pagamento
+
+
+Body
+Name        Required        Description
+value        sim        O valor a ser gerado em cima do qrcode. O valor precisa ser do tipo INT, ou seja, para R$ 1,00 real, deve ser enviado o valor 100.
+webhook_url        não        Esse parametro te como funcionalidade apontar para qual endpoint será enviado o webhook quando o status do pagamento for alterado.
+Ao realizar uma chamada com sucesso, o endpoint irá retornar a seguinte estrutura:
+
+
+{
+    "id": "9c29870c-9f69-4bb6-90d3-2dce9453bb45",
+    "qr_code": "00020101021226770014BR.GOV.BCB.PIX2555api...",
+    "status": "created",
+    "value": 35,
+    "webhook_url": "http://teste.com",
+    "qr_code_base64": "data:image/png;base64,iVBORw0KGgoAA....."
+}
+HTTP Request
+POST /api/pix/cashIn
+
+
+Webhook de retorno
+Ao adicionar o campo webhook_url na criação do qrcode pix, quando o status for alterados e caso falhe a tentativa nós tentaremos enviar 3x, e caso as 3x falhe, via painel administrativo será possível retomar os envios do mesmo. Também é possível adicionar um header customizado que iremos enviar para você em todos os webhooks, essa configuração está disponível em seu menu de configurações de nosso painel
+
+
+Exemplo de webhook a ser retornado:
+
+
+{
+  "id":"9c29870c-9f69-4bb6-90d3-2dce9453bb45",
+  "value":"35",
+  "status":"paid"
+}  
+Request com SPLIT
+
+
+curl -X POST "/api/pix/cashIn" \
+  -H "Authorization: YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "value": 35,
+    "webhook_url": "http://teste.com",
+    "split_rules": [
+        {
+            "value": 50,
+            "account_id": "9C3AD98C-F00B-4729-BEAC-0A4B70B3A043"
+        }
+    ]
+}'
+ Não recomendamos a pratica de scrap, por isso atente-se a usar os nossos webhooks para receber alterações de status
+Consultar status de QrCode PIX
+Request
+
+
+curl -X GET "/api/transactions/{ID}" \
+  -H "Authorization: YOUR_TOKEN" \
+  -H "Content-Type: application/json"
+Esse endpoint você pode consultar o status de um qrcode e também obter dados do mesmo
+
+
+Exemplo de resposta:
+
+
+{
+    "id": "9C17B975-903F-44CB-BB70-E838F85DC228",
+    "status": "created",
+    "value": "72",
+    "description": null,
+    "payment_type": "pix",
+    "created_at": "2024-05-21T02:04:56.703000Z",
+    "updated_at": "2024-05-21T02:04:56.703000Z",
+    "webhook_url": "https://seu-tite.com",
+    "pix_details": {
+        "id": "9C17B975-8F08-445D-9BBB-C40572C1E446",
+        "expiration_date": "2024-05-21 02:09:56.000",
+        "emv": "00020101021226770014BR.GOV.BCB.PIX2555api.itau/pix/qr/v2/01dd8aba-a56c-4623-aa90-3ade0aea1ebe5204000053039865802BR5910PUSHIN PAY6009SAO PAULO62070503***63047D83",
+        "created_at": "2024-05-21T02:04:56.703000Z",
+        "updated_at": "2024-05-21T02:04:56.703000Z"
+    }
+} 
+ Não recomendamos a pratica de scrap, por isso atente-se a usar os nossos webhooks para receber alterações de status
+Fazer uma transferência PIX
+Request
+
+
+curl -X POST "/api/pix/cashOut" \
+  -H "Authorization: YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "value": 20,
+    "pix_key_type": "evp",
+    "pix_key": "e7df7636-6186-408e-a49a-a43efa3ababc",
+    "webhook_url": "https://seu-tite.com"
+}'
+HTTP Request
+POST /api/pix/cashOut
+
+
+Body
+Name        Required        Description
+value        sim        O valor a ser gerado para a transferência. O valor precisa ser do tipo INT, ou seja, para R$ 1,00 real, deve ser enviado o valor 100.
+pix_key_type        sim        Tipo de chave pix a ser enviado o valor, elaas são: evp,national_registration,phone,email.
+pix_key        sim        O valor da chave.
+webhook_url        não        Esse parametro te como funcionalidade apontar para qual endpoint será enviado o webhook quando o status da transferência for alterado.
+Ao realizar uma chamada com sucesso, o endpoint irá retornar a seguinte estrutura:
+
+
+{
+    "id": "9c33c0b5-4af2-42c8-958e-0c9af0ad0e1a",
+    "endToEndId": null,
+    "receiver_name": null,
+    "webhook_url": "https://seu-tite.com",
+    "value": 22,
+    "status": "created",
+    "receiver_national_registration": null,
+    "pix_key_type": "evp",
+    "pix_key": "4dffe51c-003a..."
+}
+Webhook de retorno
+Ao adicionar o campo webhook_url na criação da transferência, quando o status for alterado e caso falhe, nós tentaremos enviar 3x, e caso as 3x falhe, via painel administrativo será possível retomar os envios do mesmo. Também é possível adicionar um header customizado que iremos enviar para você em todos os webhooks, essa configuração está disponível em seu menu de configurações de nosso painel
+
+
+Exemplo de webhook a ser retornado:
+
+
+{
+  "id":"fb88a89d012f45eea86cff9a86ea81e6",
+  "value": 22,
+  "status":"paid",
+  "description":"Transação PIX enviada para ...."
+} 
+Consultar status de uma transferência
+Request
+
+
+curl -X GET "/api/transfers/{ID}" \
+  -H "Authorization: YOUR_TOKEN" \
+  -H "Content-Type: application/json"
+Esse endpoint você pode consultar o status de uma traansferência e também obter dados do mesmo
+
+
+Exemplo de resposta:
+
+
+{
+    "id": "9C33B34B-C962-47B1-BD9C-314D3CAE463C",
+    "status": "paid",
+    "value": "20",
+    "description": "Transação PIX enviada para...",
+    "receiver_national_registration": "43...",
+    "receiver_name": "....",
+    "receiver_type": "individual",
+    "end_to_end_id": "E19468242202406032...",
+    "pix_key_type": "evp",
+    "pix_key": "4dffe51....",
+    "created_at": "2024-06-03T23:50:53.537000Z",
+    "updated_at": "2024-06-03T23:50:57.207000Z",
+    "webhook_url": "https://your-site.com"
+}
+Realizar estorno de transação
+Request
+
+
+curl -X POST "/api/transactions/{transaction_id}/refund" \
+  -H "Authorization: YOUR_TOKEN" \
+  -H "Content-Type: application/json"
+Esse endpoint permite realizar o estorno de uma transação
+
+
+Obs: O prazo máximo para a realização do estorno é de 30 dias. Após isso não será mais possível realizar o estorno.
+
+
+Status code        Body        Description
+200        []        Transação sendo processada
+400        {'error': ''}        As mensagens de erro podem ser de: Prazo de estorno excedido, Você não possui saldo para realizar o estorno, Não foi possível concluir o estorno.
