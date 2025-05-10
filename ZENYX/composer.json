@@ -1,0 +1,15 @@
+{
+  "name": "zenyx/vips-bot",
+  "description": "Bot gerenciador para bots de Telegram",
+  "type": "project",
+  "require": {
+    "php": ">=7.4"
+  },
+  "scripts": {
+    "start": "python run.py"
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
